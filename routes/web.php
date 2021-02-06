@@ -31,4 +31,6 @@ Route::get('/noticias/{id}',[NoticiaController::class, "detalles"])->name("notic
 //actualizar *update
 //eliminar *delete
 
-Route::get("/admin/noticias", [AdminNoticiaController::class, "index"])->name("admin.noticia.index");
+Route::get("/admin/noticias", [AdminNoticiaController::class, "index"])->name("admin.noticias.index");
+Route::get("/admin/noticias/create", [AdminNoticiaController::class, "create"])->name("admin.noticias.create");
+Route::post("/admin/noticias", [AdminNoticiaController::class, "store"])->name("admin.noticias.store");
