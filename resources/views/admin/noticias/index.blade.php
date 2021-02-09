@@ -7,6 +7,12 @@
 </head>
 <body>
     <h1>Lista de Noticias</h1>
+    @if(Session::has("exito"))
+        <p style="color: #0e7a0e">{{Session::get("exito")}}</p>
+    @endif
+    @if(Session::has("error"))
+        <p style="color: #a11919a1">{{Session::get("error")}}</p>
+    @endif
     <a href="{{ route("admin.noticias.create") }}">Crear nueva noticia</a>
     <table>
         <thead>
@@ -18,7 +24,7 @@
                 <tr>
                     <td>{{ $noticia->titulo}}</td>
                     <td>
-                    <a href="#">Editar</a>
+                    <a href="{{ route("admin.noticias.edit", $noticia->id)}}">Editar</a>
                     <a href="#">Eliminar</a>
                     </td>
                 </tr>

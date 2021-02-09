@@ -20,7 +20,7 @@
         <label>Cuerpo:</label>
         <textarea rows="5" name="cuerpo" type="text"></textarea>
         <label>Foto:</label>
-        <input name="titulo" type="text">
+        <input name="foto" type="text">
         <button type="submit">agregar nueva noticia</button>
     </form>
 </body>

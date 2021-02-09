@@ -26,11 +26,13 @@ Route::get('/noticias/{id}',[NoticiaController::class, "detalles"])->name("notic
 //Crear *create
 //Almacenar *store
 //Listar *index
-//Mostrar detaller *show
-//editar *edit
-//actualizar *update
-//eliminar *delete
+//Mostrar detaller *show GET
+//editar *edit GET
+//actualizar *update PUT
+//eliminar *delete DELETE
 
 Route::get("/admin/noticias", [AdminNoticiaController::class, "index"])->name("admin.noticias.index");
 Route::get("/admin/noticias/create", [AdminNoticiaController::class, "create"])->name("admin.noticias.create");
 Route::post("/admin/noticias", [AdminNoticiaController::class, "store"])->name("admin.noticias.store");
+Route::get("/admin/noticias/{id}/edit",[AdminNoticiaController::class, "edit"])->name("admin.noticias.edit");
+Route::put("/admin/noticia/{id}", [AdminNoticiaController::class, "update"])->name("admin.noticias.update");
