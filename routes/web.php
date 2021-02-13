@@ -36,3 +36,6 @@ Route::get("/admin/noticias/create", [AdminNoticiaController::class, "create"])-
 Route::post("/admin/noticias", [AdminNoticiaController::class, "store"])->name("admin.noticias.store");
 Route::get("/admin/noticias/{id}/edit",[AdminNoticiaController::class, "edit"])->name("admin.noticias.edit");
 Route::put("/admin/noticia/{id}", [AdminNoticiaController::class, "update"])->name("admin.noticias.update");
+Route::get("/admin/noticias/{id}/confirmdelete",[AdminNoticiaController::class, "confirmdelete"])->name("admin.noticias.confirmdelete");
+Route::delete("/admin/noticia/{id}", [AdminNoticiaController::class, "destroy"])->name("admin.noticias.destroy");
+Route::get("/admin/noticias/{id}",[AdminNoticiaController::class, "show"])->name("admin.noticias.show");
