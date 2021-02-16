@@ -84,4 +84,8 @@ class NoticiaController extends Controller
 
         return view("admin.noticias.show", $argumentos);
     }
+
+    public function blank(){
+        return view("admin.blank");
+    }
 }
