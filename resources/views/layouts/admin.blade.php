@@ -62,16 +62,30 @@
       <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a>
 
+    @php
+      $foto = "default.png";
+      if(Auth::user()->foto){
+        $foto = Auth::user()->foto;
+      }
+    @endphp
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="/profile/{{$foto}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">{{Auth::user()->name}}</a>
         </div>
+      
+      </div>
+
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <form method="POST" action="{{route('logout')}}">
+        @csrf
+        <button class="btn btn-secondary btn-sm" type="submit">Cerrar sesión</button>
+      </form>
       </div>
 
       <!-- Sidebar Menu -->
@@ -81,31 +95,26 @@
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa-file-alt"></i>
               <p>
-                Dashboard
+                Noticias
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/index.html" class="nav-link">
+                <a href="{{route('admin.noticias.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
+                  <p>Lista</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/index2.html" class="nav-link">
+                <a href="{{route('admin.noticias.create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
+                  <p>Crear Noticia</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="/index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
-                </a>
-              </li>
+           
             </ul>
           </li>
 

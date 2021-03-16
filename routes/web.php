@@ -5,6 +5,7 @@ use App\Http\Controllers\InicioController;
 use App\Http\Controllers\NoticiaController;
 use App\Http\Controllers\Admin\NoticiaController as AdminNoticiaController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,11 +17,24 @@ use App\Http\Controllers\Admin\NoticiaController as AdminNoticiaController;
 |
 */
 
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+//Registro de las rutas de autenticacion
+require __DIR__.'/auth.php';
+
+//Rotas de noticias
+
 Route::get('/', [inicioController::class, "index"]);
 Route::get('/contacto', [inicioController::class,"contacto"]);
 
 Route::get('/noticias', [NoticiaController:: class, "lista"])->name("noticias");
 Route::get('/noticias/{id}',[NoticiaController::class, "detalles"])->name("noticias.detalles");
+
+//Routas del admin de noticias
 
 //Recurso
 //Crear *create
