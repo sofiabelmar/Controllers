@@ -1,3 +1,7 @@
+@extends('layouts.admin')
+@section("titulo","Editar")
+@section("contenido_principal")
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

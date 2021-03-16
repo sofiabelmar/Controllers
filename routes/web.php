@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\NoticiaController;
 use App\Http\Controllers\Admin\NoticiaController as AdminNoticiaController;
+use App\Http\Controllers\Admin\TableroController;
 
 
 /*
@@ -19,9 +20,9 @@ use App\Http\Controllers\Admin\NoticiaController as AdminNoticiaController;
 
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/register', function () {
+    return view('register');
+});
 
 //Registro de las rutas de autenticacion
 require __DIR__.'/auth.php';
@@ -53,5 +54,8 @@ Route::put("/admin/noticia/{id}", [AdminNoticiaController::class, "update"])->na
 Route::get("/admin/noticias/{id}/confirmdelete",[AdminNoticiaController::class, "confirmdelete"])->name("admin.noticias.confirmdelete");
 Route::delete("/admin/noticia/{id}", [AdminNoticiaController::class, "destroy"])->name("admin.noticias.destroy");
 Route::get("/admin/noticias/{id}",[AdminNoticiaController::class, "show"])->name("admin.noticias.show");
+
+//Tablero
+Route::get("/admin", [TableroController::class, "tablero"])->name("admin.tablero");
 
 Route::get("/admin/blank",[AdminNoticiaController::class, "blank"])->name("admin.blank");
