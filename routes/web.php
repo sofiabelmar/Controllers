@@ -29,10 +29,10 @@ require __DIR__.'/auth.php';
 
 //Rotas de noticias
 
-Route::get('/', [inicioController::class, "index"]);
+//Route::get('/', [inicioController::class, "index"]);
 Route::get('/contacto', [inicioController::class,"contacto"]);
 
-Route::get('/noticias', [NoticiaController:: class, "lista"])->name("noticias");
+Route::get('/', [NoticiaController:: class, "lista"])->name("noticias");
 Route::get('/noticias/{id}',[NoticiaController::class, "detalles"])->name("noticias.detalles");
 
 //Routas del admin de noticias
